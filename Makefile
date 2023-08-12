@@ -1,17 +1,14 @@
-obj-m = dht22.o
+CC=arm-linux-gnueabihf-gcc
 
-KPATH=~/RPi3_Workshop/kernel_src/linux
-PWD=$(shell pwd)
-CROSS=~/RPi3_Workshop/tool_chain/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf-
-CC=$(CROSS)gcc
+obj-m := dht22.o
 
-all: dht22 poll
+all: build poll
 
-dht22: dht22.c dht22.h
-	make -C $(KPATH) ARCH=arm CROSS_COMPILE=$(CROSS) SUBDIRS=$(PWD) modules
+build:
+	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
 
-poll: poll.c
+build/poll: src/poll.c
 	$(CC) -o poll -lc -lpthread poll.c
 
 clean:
-	rm -rf *.o *.ko .*cmd .tmp* core *.i *.mod.c modules.* Module.* poll
+    make -C /lib/modules/$(shell uname -r)/build M=$(PWD) clean

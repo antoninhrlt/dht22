@@ -1,18 +1,8 @@
-/*
- * DHT22 Humidity And Temperature Sensor Driver
- * 
- * Copyright (c) Edward Lin <edwardlin.tw@gmail.com>
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU General Public License for more details.
- */
+/// Under the GNU GPL v2.0 License.
+/// This file is part of "dht22", a fork of "edwardlintw/DHT22".
+/// Copyright (c) Antonin Hérault
+/// Copyright (c) Edward Lin <edwardlin.tw@gmail.com>
+
 #include <linux/module.h>
 #include <linux/kernel.h>
 #include <linux/init.h>
@@ -697,4 +687,3 @@ MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Edward Lin <edwardlin.tw@gmail.com");
 MODULE_DESCRIPTION("A driver for DHT22 humidity/temperature sensor");
 MODULE_VERSION("0.1");
-
